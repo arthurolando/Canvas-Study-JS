@@ -6,6 +6,7 @@ let mouse = {
     x: undefined,
     y: undefined
 }
+
 let rgb = [
 	"rgb(26, 188, 156)",
 	"rgb(46, 204, 113)",
@@ -145,5 +146,6 @@ window.addEventListener("click", click);
 window.addEventListener("mouseout", mouseout);
 
 setInterval(() => {
-    document.querySelector("#debug span").innerText = balls.length;
+    document.querySelector("#debug span#mouse").innerText = `Mouse: (${mouse.x}, ${mouse.y})`;
+    document.querySelector("#debug span#balls").innerText = `balls.length = ${balls.length}`;
 }, 100);
