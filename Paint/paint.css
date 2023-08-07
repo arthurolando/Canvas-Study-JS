@@ -11,6 +11,7 @@ canvas#canvas{
     height: 50%;
     background-color: #aaa;
     cursor: pointer;
+    box-shadow: 0 0 1px white;
 }
 
 .controls {
@@ -54,6 +55,26 @@ canvas#canvas{
     width: 20%;
     align-items: center;
     flex-direction: column;
+}
+
+#penthickness{
+    width: 90%;
+    height: 50%;
+    margin-top: 5%;
+    background-color: white;
+}
+
+.controls .dowload-buttons {
+    width: 40%;
+}
+
+.dowload-buttons button {
+    width: 100%;
+    font-size: 5em;
+}
+
+.dowload-buttons button:hover {
+    background-color: #aaa ;
 }
 
 input.range{

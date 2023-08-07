@@ -30,6 +30,7 @@ function init() {
     canvas.style.marginTop = `${marginY}px`;
     canvas.style.marginBottom = `${marginY}px`;
     console.log(window.devicePixelRatio);
+    penThicknessDraw(drawing.width);
     document.querySelector(".penthickness-buttons input.ranget").value = drawing.width;
     document.querySelector(".penthickness-buttons input.range").value = drawing.width;
 }
@@ -127,9 +128,23 @@ function redoImage() {
     }
 }
 
+function penThicknessDraw(thinckness) {
+    var penCanvas = document.getElementById("penThickness");
+    var penctx = penCanvas.getContext("2d");
+    penctx.fillStyle = "white";
+    penctx.fillRect(0, 0, penCanvas.width, penCanvas.height);
+    penctx.beginPath();
+    penctx.lineWidth = thinckness;
+    penctx.moveTo(10, 10);
+    penctx.lineTo(penCanvas.width - 10, penCanvas.height - 10);
+    penctx.stroke();
+    penctx.closePath();
+}
+
 function penChangeThickness() {
     drawing.width = document.querySelector(".penthickness-buttons input.range").value;
     document.querySelector(".penthickness-buttons input.ranget").value = drawing.width;
+    penThicknessDraw(drawing.width);
 }
 
 function penChangeThicknesst() {
@@ -140,6 +155,17 @@ function penChangeThicknesst() {
     else {
         drawing.width = document.querySelector(".penthickness-buttons input.ranget").value;
         document.querySelector(".penthickness-buttons input.range").value = drawing.width;
+        penThicknessDraw(drawing.width);
+    }
+}
+
+function dowload() {
+    if (confirm("Você tem certeza que deseja salvar imagem?")) {
+        image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+        var link = document.createElement('a');
+        link.download = "my-image.png";
+        link.href = image;
+        link.click();
     }
 }
 
