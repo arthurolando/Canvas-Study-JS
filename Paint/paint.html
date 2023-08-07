@@ -1,0 +1,43 @@
+'<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paint</title>
+    <link rel="stylesheet" href="./paint.css">
+</head>
+<body>
+    <div class="canvas">
+        <canvas id="canvas"></canvas>
+    </div>
+    <div class="controls">
+        <div class="background-buttons">
+            <article>Background Color</article>
+            <input type="button" class="white" onclick="changeBackground('#fff')">
+            <input type="button" class="black" onclick="changeBackground('#222')">
+            <input type="button" class="gray" onclick="changeBackground('#ddd')">
+            <input type="button" class="red" onclick="changeBackground('#f55')">
+            <input type="button" class="yellow" onclick="changeBackground('#ffa')">
+            <input type="button" class="blue" onclick="changeBackground('#5af')">
+            <input type="button" class="green" onclick="changeBackground('#afa')">
+            <input type="color" class="color" onchange="selectBackground()">
+        </div>
+        <div class="pencolor-buttons">
+            <article>Pen Color</article>
+            <input type="button" class="white" onclick="changePenColor('white')">
+            <input type="button" class="black" onclick="changePenColor('black')">
+            <input type="button" class="gray" onclick="changePenColor('gray')">
+            <input type="button" class="red" onclick="changePenColor('red')">
+            <input type="button" class="yellow" onclick="changePenColor('yellow')">
+            <input type="button" class="blue" onclick="changePenColor('blue')">
+            <input type="button" class="green" onclick="changePenColor('green')">
+            <input type="color" class="color" onchange="selectPenColor()">
+        </div>
+    </div>
+    <div id="debug">
+        <span id="mouse"></span> <br>
+        <span id="pincel"></span> <br>
+    </div>
+    <script src="./paint.js"></script>
+</body>
+</html>'

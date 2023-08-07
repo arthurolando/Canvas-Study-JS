@@ -1,0 +1,116 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: #222;
+}
+
+canvas#canvas{
+    background-color: #aaa;
+    cursor: pointer;
+}
+
+div.controls {
+    border: 1px solid white;
+    margin: 2vh 3vw;
+    height: 25%;
+    padding: 2% 0;
+    display: flex;
+}
+
+div.controls div{
+    height: 100%;
+    background-color: #222;
+    width: 9%;
+    margin: 0 2%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+div.controls div article{
+    color: white;
+    height: 5%;
+    text-align: center;
+    width: 100%;
+}
+
+input{
+    width: 50%;
+    height: 20%;
+    border: 1px solid #aaa;
+    padding: 0;
+}
+input:hover{
+    filter: brightness(110%) saturate(80%);
+}
+input:active{
+    filter: brightness(90%) saturate(120%);
+}
+
+div#debug{
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    background-color: #e1e1e1;
+    padding: 5px;
+    font-weight: 800;
+    color: #ec3a3a;
+}
+
+/* colors */
+
+.background-buttons .white{
+    background-color: #fff;
+}
+
+.background-buttons .black{
+    background-color: #222;
+}
+
+.background-buttons .blue{
+    background-color: #5af;
+}
+
+.background-buttons .red{
+    background-color: #f55;
+}
+
+.background-buttons .yellow{
+    background-color: #ffa;
+}
+
+.background-buttons .gray{
+    background-color: #ddd;
+}
+
+.background-buttons .green{
+    background-color: #5fa;
+}
+
+.background-buttons .white{
+    background-color: white;
+}
+
+.black{
+    background-color: black;
+}
+
+.blue{
+    background-color: blue;
+}
+
+.red{
+    background-color: red;
+}
+
+.yellow{
+    background-color: yellow;
+}
+
+.gray{
+    background-color: gray;
+}
+
+.green{
+    background-color: green;
+}
