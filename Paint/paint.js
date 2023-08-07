@@ -5,7 +5,7 @@ let marginX = window.innerWidth * 0.05 * window.devicePixelRatio;
 let marginY = window.innerHeight * 0.05 * window.devicePixelRatio;
 
 let width = canvas.width = window.innerWidth * 0.9;
-let height = canvas.height = window.innerHeight * 0.55;
+let height = canvas.height = window.innerHeight * 0.5;
 
 let mouse = {
     x: undefined,
@@ -20,6 +20,9 @@ let drawing = {
     width: 10,
 }
 
+let draws = [];
+let index = -1;
+
 function init() {
     ctx.fillStyle = "#e1e1e1";
     ctx.fillRect(0, 0, width, height);
@@ -27,6 +30,8 @@ function init() {
     canvas.style.marginTop = `${marginY}px`;
     canvas.style.marginBottom = `${marginY}px`;
     console.log(window.devicePixelRatio);
+    document.querySelector(".penthickness-buttons input.ranget").value = drawing.width;
+    document.querySelector(".penthickness-buttons input.range").value = drawing.width;
 }
 
 function resizeReset() {
@@ -44,21 +49,30 @@ function start() {
     ctx.beginPath();
     ctx.moveTo(drawing.x, drawing.y);
     ctx.stroke();
+
+    while (draws.length - 1 > index){
+        draws.pop();
+    }
 }
 
-function stop() {
+function stop(event) {
     canvas.style.cursor = "pointer";
     ctx.closePath();
+
+    if ((event.type != "mouseout") || (drawing.state == true)){
+        draws.push(ctx.getImageData(0,0,width,height));
+        index += 1;
+    }
     drawing.state = false;
 }
 
-function click() {
+function click(event) {
     drawing.state = !drawing.state;
     if (drawing.state) {
         start();
     }
     else {
-        stop();
+        stop(event);
     }
 }
 
@@ -70,7 +84,6 @@ function draw() {
         ctx.Cap = "round";
         ctx.lineJoin = "round";
         ctx.stroke();
-
     }
 }
 
@@ -93,6 +106,44 @@ function selectPenColor() {
     changePenColor(color);
 }
 
+function undoImage() {
+    if (index < 0 ){
+        changeBackground("#e1e1e1");
+    }
+    else if (index == 0) {
+        changeBackground("#e1e1e1");
+        index -= 1;
+    }
+    else {
+        index -= 1;
+        ctx.putImageData(draws[index], 0, 0);
+    }
+}
+
+function redoImage() {
+    if (index + 1 < draws.length){
+        index += 1;
+        ctx.putImageData(draws[index], 0, 0);
+    }
+}
+
+function penChangeThickness() {
+    drawing.width = document.querySelector(".penthickness-buttons input.range").value;
+    document.querySelector(".penthickness-buttons input.ranget").value = drawing.width;
+}
+
+function penChangeThicknesst() {
+    var ranget = document.querySelector(".penthickness-buttons input.ranget").value;
+    if(ranget > 100 || ranget < 0) {
+        document.querySelector(".penthickness-buttons input.ranget").value = drawing.width;
+    }
+    else {
+        drawing.width = document.querySelector(".penthickness-buttons input.ranget").value;
+        document.querySelector(".penthickness-buttons input.range").value = drawing.width;
+    }
+}
+
+
 function inRange(point, min, max) {
     return (point > min && point < max)? true: false;
 }
@@ -107,7 +158,6 @@ function mousemove(e) {
         drawing.y = mouse.y - marginY - 18;
     }
     else {
-        stop();
         drawing.x = undefined;
         drawing.y = undefined;
     }
@@ -119,6 +169,7 @@ window.addEventListener("DOMContentLoaded", init);
 window.addEventListener("resize", resizeReset);
 window.addEventListener("mousemove", mousemove);
 canvas.addEventListener("click", click);
+canvas.addEventListener("mouseout", stop);
 
 // debug
 

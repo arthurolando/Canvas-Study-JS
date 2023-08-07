@@ -33,6 +33,15 @@
             <input type="button" class="green" onclick="changePenColor('green')">
             <input type="color" class="color" onchange="selectPenColor()">
         </div>
+        <div class="undo-buttons">
+            <input type="button" onclick="undoImage()" value="Undo">
+            <input type="button" onclick="redoImage()" value="Redo">
+        </div>
+        <div class="penthickness-buttons">
+            <article>penThickness</article>
+            <input type="range" class="range" onchange="penChangeThickness()">
+            <input type="number" class="ranget" min="0" max="100" onchange="penChangeThicknesst()">
+        </div>
     </div>
     <div id="debug">
         <span id="mouse"></span> <br>

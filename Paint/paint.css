@@ -6,11 +6,14 @@ body {
 }
 
 canvas#canvas{
+    margin: 5%;
+    width: 90%;
+    height: 50%;
     background-color: #aaa;
     cursor: pointer;
 }
 
-div.controls {
+.controls {
     border: 1px solid white;
     margin: 2vh 3vw;
     height: 25%;
@@ -18,20 +21,45 @@ div.controls {
     display: flex;
 }
 
-div.controls div{
+.controls div{
     height: 100%;
-    background-color: #222;
     width: 9%;
     margin: 0 2%;
     display: flex;
     flex-wrap: wrap;
 }
 
-div.controls div article{
+.controls div article{
     color: white;
     height: 5%;
     text-align: center;
     width: 100%;
+}
+
+.controls .undo-buttons{
+    flex-direction: column;
+}
+
+.controls .undo-buttons :nth-child(n){
+    width: 80%;
+    height: 40%;
+    margin: 10%;
+    background-color: #888888;
+    border: 5px outset black;
+}
+
+.controls .penthickness-buttons{
+    background-color: #888888;
+    display: flex;
+    width: 20%;
+    align-items: center;
+    flex-direction: column;
+}
+
+input.range{
+    width: 95%;
+    margin: 2.5%;
+    height: 10%;
 }
 
 input{
@@ -40,9 +68,11 @@ input{
     border: 1px solid #aaa;
     padding: 0;
 }
+
 input:hover{
     filter: brightness(110%) saturate(80%);
 }
+
 input:active{
     filter: brightness(90%) saturate(120%);
 }
