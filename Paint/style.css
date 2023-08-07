@@ -44,7 +44,7 @@ canvas#canvas{
 .controls .undo-buttons :nth-child(n){
     width: 80%;
     height: 40%;
-    margin: 10%;
+    margin: 5%;
     background-color: #888888;
     border: 5px outset black;
 }

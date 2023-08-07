@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus estudos de canvas</title>
+</head>
+<body>
+    <center>
+        <h1>Meus Estudos em Canvas</h1>
+        <a href="#" onclick="changeframe('/CollisionOfCircles/index.html')">Colisão de Circulos</a>
+        <a href="#" onclick="changeframe('/InteractionEvents/index.html')">Eventos de Interação</a>
+        <a href="#" onclick="changeframe('/DragDrop/index.html')">Pega e Solta</a>
+        <a href="#" onclick="changeframe('/SimpleGraphe/index.html')">Grafico Simples</a>
+        <a href="#" onclick="changeframe('/MouseParticles/index.html')">Particulas</a>
+        <a href="#" onclick="changeframe('/Paint/index.html')">Paint</a>
+        <br>
+        <iframe id="myframe" width="90%" height="850px"></iframe>
+        <p><span id="link"></span></p>
+        <script>
+            function changeframe(change) {
+                document.getElementById('myframe').src = change;
+                document.querySelector('#link').innerHTML = `<a href="${change}" target="_blank">Ver Pagina</a>`;
+            }
+        </script>
+    </center>
+</body>
+</html>
