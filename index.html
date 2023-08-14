@@ -6,23 +6,13 @@
     <title>Meus estudos de canvas</title>
 </head>
 <body>
-    <center>
-        <h1>Meus Estudos em Canvas</h1>
-        <a href="#" onclick="changeframe('/CollisionOfCircles/index.html')">Colisão de Circulos</a>
-        <a href="#" onclick="changeframe('/InteractionEvents/index.html')">Eventos de Interação</a>
-        <a href="#" onclick="changeframe('/DragDrop/index.html')">Pega e Solta</a>
-        <a href="#" onclick="changeframe('/SimpleGraphe/index.html')">Grafico Simples</a>
-        <a href="#" onclick="changeframe('/MouseParticles/index.html')">Particulas</a>
-        <a href="#" onclick="changeframe('/Paint/index.html')">Paint</a>
-        <br>
-        <iframe id="myframe" width="90%" height="850px"></iframe>
-        <p><span id="link"></span></p>
-        <script>
-            function changeframe(change) {
-                document.getElementById('myframe').src = change;
-                document.querySelector('#link').innerHTML = `<a href="${change}" target="_blank">Ver Pagina</a>`;
-            }
-        </script>
-    </center>
+    <h1>Meus Estudos em Canvas</h1>
+    <a href="/CollisionOfCircles/index.html">Colisão de Circulos</a><br>
+    <a href="/InteractionEvents/index.html">Eventos de Interação</a><br>
+    <a href="/DragDrop/index.html">Pega e Solta</a><br>
+    <a href="/SimpleGraphe/index.html">Grafico Simples</a><br>
+    <a href="/MouseParticles/index.html">Particulas</a><br>
+    <a href="/Paint/index.html">Paint</a><br>
+    <a href="/FollowMouse/index.html">FollowMouse</a>
 </body>
 </html>
