@@ -16,6 +16,6 @@ var particle = {
     },
 
     update: function() {
-        this.position.addTo(this.velocity);
+		this.position.addTo(this.velocity);
     }
 };

@@ -49,6 +49,10 @@ var vector = {
         return vector.create(this.x + v2.getX(), this.y + v2.getY());
     },
 
+    subtract: function(v2) {
+		return vector.create(this.x - v2.getX(), this.y - v2.getY());
+	},
+
     multiply: function(val) {
         return vector.create(this.x * val, this.y * val);
     },
@@ -67,13 +71,13 @@ var vector = {
         this.y -= v2.getY();
     },
     
-    multiplyBy: function(v2) {
-        this.x *= v2.getX();
-        this.y *= v2.getY();
+    multiplyBy: function(val) {
+        this.x *= val;
+        this.y *= val
     },
 
-    divideBy: function(v2) {
-        this.x /= v2.getX();
-        this.y /= v2.getY();
+    divideBy: function(val) {
+        this.x /= val;
+        this.y /= val;
     }
 };
