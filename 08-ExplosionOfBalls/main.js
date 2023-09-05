@@ -34,7 +34,7 @@ function changeGravity(gravity) {
     for (var i = 0; i < numParticles; i++) {
         particles[i].gravity = vector.create(0, gravity);
     }
-    document.querySelector("#debug span#gravity").innerText = `gravity:(${gravity})`;
+    document.querySelector("#debug span#gravity").innerText = `"gravity":(${gravity})`;
 }
 
 function Draw(p) {
