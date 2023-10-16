@@ -8,8 +8,10 @@ window.onload = function() {
         p = particle.create(0, height / 2, 10, 0);
 
     targetContext.beginPath();
-    targetContext.arc(width / 2, height / 2, 200, 0, Math.PI * 2, false);
-    targetContext.fill();
+    // targetContext.arc(width / 2, height / 2, 200, 0, Math.PI * 2, false);
+    // targetContext.fill();
+    targetContext.font = "208px serif";
+    targetContext.fillText("Hello world.", width/5, height/1.95);
 
     update();
 
